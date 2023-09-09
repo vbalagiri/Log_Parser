@@ -1,0 +1,22 @@
+Assignments Project.
+----------------------
+1.Image list:       ---> get_ip_list: get_image_list
+2.No of Images count:  ---> count_ip: count_image
+3.Images counter: ------> counter_ip : counter_image
+4.Email counter ------> counter_ip : counter_email
+5.Ip_address.json  --> create_json_file: create_json_file_ip
+6.Email.json       --> create_json_file: create_json_file_email
+-----------------------
+7.Date list   ---> get_ip_list: get_date_list
+8.Url list  ---> get_ip_list: get_url_list
+9.Date counter ------> counter_ip : counter_date
+10.Url counter ------> counter_ip : counter_url
+11.Date.json  ------> create_json_file : create_json_file_date
+12.url.json ------> create_json_file : create_json_file_url
+
+
+Example:
+def get_email(log_file):
+    regex = r"[a-z0-9\.\-+_]+@[a-z0-9\.\-+_]+\.[a-z]+"
+    ip_list = re.findall(regex, log_file)
+    return email_list
