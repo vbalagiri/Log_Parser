@@ -16,6 +16,7 @@ Assignments Project.
 
 
 Example:
+-------
 def get_email(log_file):
     regex = r"[a-z0-9\.\-+_]+@[a-z0-9\.\-+_]+\.[a-z]+"
     ip_list = re.findall(regex, log_file)
