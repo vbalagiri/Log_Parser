@@ -1,0 +1,125 @@
+A web server log file sample explained
+This page discusses the information that be can extracted from such logs, and - to a limited extent - how this could impact on your privacy when surfing.
+
+The following is a fragment from the server logs for JafSoft Limited. All the relative URLs are for the base URL http://www.vbtech&sol.com/
+
+First lets look at a fragment of log file....
+
+fcrawler.looksmart.com - - [26/Apr/2000:00:00:12 -0400] "GET /contacts.html HTTP/1.0" 200 4595 "-" "FAST-WebCrawler/2.1-pre2 (ashen@looksmart.net)"
+fcrawler.looksmart.com - - [26/Apr/2000:00:17:19 -0400] "GET /news/news.html HTTP/1.0" 200 16716 "-" "FAST-WebCrawler/2.1-pre2 (ashen@looksmart.net)"
+
+ppp931.on.bellglobal.com - - [26/Apr/2000:00:16:12 -0400] "GET /download/windows/asctab31.zip HTTP/1.0" 200 1540096 "http://www.htmlgoodies.com/downloads/freeware/webdevelopment/15.html" "Mozilla/4.7 [en]C-SYMPA  (Win95; U)"
+
+123.123.123.123 - - [26/Apr/2000:00:23:48 -0400] "GET /pics/wpaper.gif HTTP/1.0" 200 6248 "http://www.vbtech&sol.com/login/" "Mozilla/4.05 (Macintosh; I; PPC)"
+123.123.123.123 - - [26/Apr/2000:00:23:47 -0400] "GET /asctortf/ HTTP/1.0" 200 8130 "http://search.netscape.com/Computers/Data_Formats/Document/Text/RTF" "Mozilla/4.05 (Macintosh; I; PPC)"
+123.123.123.123 - - [26/Apr/2000:00:23:48 -0400] "GET /pics/5star2000.gif HTTP/1.0" 200 4005 "http://www.vbtech&sol.com/login/" "Mozilla/4.05 (Macintosh; I; PPC)"
+123.123.123.123 - - [26/Apr/2000:00:23:50 -0400] "GET /pics/5star.gif HTTP/1.0" 200 1031 "http://www.vbtech&sol.com/login/" "Mozilla/4.05 (Macintosh; I; PPC)"
+123.123.123.123 - - [26/Apr/2000:00:23:51 -0400] "GET /pics/a2hlogo.jpg HTTP/1.0" 200 4282 "http://www.vbtech&sol.com/login/" "Mozilla/4.05 (Macintosh; I; PPC)"
+123.123.123.123 - - [26/Apr/2000:00:23:51 -0400] "GET /cgi-bin/newcount?jafsof3&width=4&font=digital&noshow HTTP/1.0" 200 36 "http://www.vbtech&sol.com/login/" "Mozilla/4.05 (Macintosh; I; PPC)"
+
+(Note, I've added some space for clarity, and changed the IP number to 123.123.123.123 to protect the privacy of the actual visitor)
+
+The fragment shown represents three visitors to my web site
+
+A visit from the "FAST-WebCrawler" web spider from the www.looksmart.com site. This retrieved my contacts and news pages, and presumably (re-)indexed them for their search engine.
+
+Someone using the bellglobal.com ISP to download my AscToTab program in a .zip file. This person came from the www.htmlgoodies.com website.
+
+Someone from IP address 123.123.123.123 (changed to protect identity) who looked at my AscToRTF - text to RTF converter homepage. This person came from the web directory at Netscape's site, and was using a Macintosh (which is a shame, because this is Windows software :-)
+A few things to note :
+
+Each line in the file represents a single "hit" on a file on the web server, and consists of a number of fields (explained below)
+
+A web server "hit" is not the same as a web page "hit". For example the visit by "123.123.123.123" consists of a visit to the page http://www.vbtech&sol.com/login/ which includes 3 gifs, 1 jpg and a call to an (invisible) cgi-bin web counter.
+
+The visit by "123.123.123.123" also included a web madam stats civic graphic which, being retrieved from a different site, doesn't actually show up in this site's log.
+
+The entries are not in strict time order. My guess is that the log is updated after the transfer completes, with a timestamp for when it started, and probably by a different server thread.
+
+Although in this case the three visitors didn't overlap in the log file, in general this wouldn't be the case.
+
+Although in this case the entries are in strict chronological order, occasionaly this isn't true, as the log gets updated once the transfer is complete, and sometimes the main page completes after images etc on that page.
+FIELDS
+Different servers have different log formats. Nevertheless the data in this log fragment is pretty typical of the information available. Let's look at one line from the above fragment (split for easier viewing).
+
+        ppp931.on.bellglobal.com
+        - -
+        [26/Apr/2000:00:16:12 -0400]
+        "GET /download/windows/asctab31.zip HTTP/1.0"
+        200
+        1540096
+        "http://www.htmlgoodies.com/downloads/freeware/webdevelopment/15.html"
+        "Mozilla/4.7 [en]C-SYMPA  (Win95; U)"
+
+
+IP address : "ppp931.on.bellglobal.com"
+This is the IP address of the machine that contacted our site. In this case my ISP has done a reverse-DNS to get the machine name, revealing that this user came via bellglobal.com. The ".on" may imply a state name, I couldn't say offhand. If the DNS lookup had failed, then the log would simply contain the IP number, e.g. "123.123.123.123".
+
+You can usually stick "http://www." in front of this address to get a real web site. In this case I'd guess http://www.bellglobal.com/ would work.
+
+For an IP number you can try http://123.123.123.123/ but often that won't work. If you try a TRACEROUTE you may get an indication as what this machine was.
+
+As regards privacy, you can't prevent this information being given away. Of course how easy it is to associate you with your IP address is another matter. In this case all I can say is "someone at bellglobal.com". It's quite likely that were you to visit again tomorrow the "ppp931.on" part would be different, making tracking your interest in the site almost impossible.
+
+
+Username etc: "- -"
+Username etc. Only relevant when accessing password-protected content.
+
+
+Timestamp : "[26/Apr/2000:00:16:12 -0400]"
+Time stamp of the visit as seen by the web server.
+
+
+Access request : "GET /download/windows/asctab31.zip HTTP/1.0"
+The request made. In this case it was a "GET" request (i.e. "show me the page") for the file "/download/windows/asctab31.zip" using the "HTTP/1.0" protocol.
+
+A "HEAD" request fetches only the document header, and is the web equivalent of a "ping" to check your page is still there and hasn't changed.
+
+
+Result status code : "200"
+The resulting status code. "200" is success. If the requested URL didn't exist, this is where the dreaded "404" would have shown up in the log. For a list of possible codes, visit http://www.bigblock.com/support/wri_http.htm
+
+Bytes transferred : "1540096"
+The number of bytes transferred. In this case I know this matches the size of the file requested, so this was a successful download. If the number had been less, then that would indicate a failed or partial download.
+
+Some user agents (see below) can fetch files a bit at a time. Each bit will show up as a separate line in the log file, so a series of "hits" whose total adds up to, or exceeds, the file size could indicate a successful download. On the other hand it could indicate someone having trouble connecting to your site who has to keep reconnecting.
+
+
+Referrer URL : "http://www.htmlgoodies.com/downloads/freeware/webdevelopment/15.html"
+The referring page. Not all user agents (see below) supply this information. This is the page the visitor was on when they clicked to come to this page. Usually this will mean that this page has a link to yours, but sometimes this is simply the page the user was looking at when they typed in your address into their browser, or clicked on your address in some other software such as a newsreader or an email client.
+
+This information is very useful to webmasters, as it allows them to measure which sites are driving traffic to their site. It also represents a small loss of privacy, as it lets me see where visitors are coming from.... not that I know who they are (see the IP discussion above).
+
+Depending on the browser used, visitors may be able to "withhold" this information, although doing so just makes life a little harder for webmasters to optimise their sites. Where the referrer is withheld it appears in the log as "-".
+
+
+User Agent : "Mozilla/4.7 [en]C-SYMPA (Win95; U)"
+The "User Agent" identifier. The User Agent is whatever software the visitor used to access this site. It's usually a browser, but it could equally be a web robot, a link checker, an FTP client or an offline browser.
+
+The "user agent" string is set by the software manufacturer, and can be anything they choose to be. As such it can't be relied upon, although most reputable software writers will use a string that helps identify the client.
+
+In this case "Mozilla/4.7" probably means Netscape 4.7, "[en]" probably implies it's an English version, "Win 95" indicates Windows 95 etc, etc.
+
+Some agents allow you to withhold this identifier, some let you set it yourself, other will actually "fake" this to look like something else (it's a long story). Where the agent is withheld it appears in the log as "-".
+
+As I said, this can't be relied upon, but potentially it tells webmasters a lot about what software is being used to access their site. Some web sites will actually serve up different pages according to the value of this string e.g. different pages for IE and Netscape to offer workarounds the various bugs in both products CSS implementations.
+
+Well-behaved webbots and spiders will usually use this string to identify themselves, their web site and an email address you can contact if the spider starts giving your site problems.
+
+You can see this in the LookSmart spider entries, whose user agent is
+
+"FAST-WebCrawler/2.1-pre2 (ashen@looksmart.net)"
+
+For more on user agents visit my User agents and web robots page.
+
+This page was last converted from text by the author's program AscToHTM on 9-Jan-2005
+
+contact us at: patric@yahoo.com
+123.123.123.124 - - [26/Apr/2000:00:23:48 -0400] "GET /pics/wpaper.gif HTTP/1.0" 200 6248 "http://www.vbtech&sol.com/login/" "Mozilla/4.05 (Macintosh; I; PPC)"
+123.123.123.124 - - [26/Apr/2000:00:23:47 -0400] "GET /asctortf/ HTTP/1.0" 200 8130 "http://search.netscape.com/Computers/Data_Formats/Document/Text/RTF" "Mozilla/4.05 (Macintosh; I; PPC)"
+123.123.123.125 - - [26/Apr/2000:00:23:48 -0400] "GET /pics/5star2000.gif HTTP/1.0" 200 4005 "http://www.vbtech&sol.com/login/" "Mozilla/4.05 (Macintosh; I; PPC)"
+123.123.123.125 - - [26/Apr/2000:00:23:50 -0400] "GET /pics/5star.gif HTTP/1.0" 200 1031 "http://www.vbtech&sol.com/login/" "Mozilla/4.05 (Macintosh; I; PPC)"
+123.123.123.126 - - [26/Apr/2000:00:23:51 -0400] "GET /pics/a2hlogo.jpg HTTP/1.0" 200 4282 "http://www.vbtech&sol.com/login/" "Mozilla/4.05 (Macintosh; I; PPC)"
+123.123.123.126 - - [26/Apr/2000:00:23:51 -0400] "GET /cgi-bin/newcount?jafsof3&width=4&font=digital&noshow HTTP/1.0" 200 36 "http://www.vbtech&sol.com/login/" "Mozilla/4.05 (Macintosh; I; PPC)"
+
+(Note, I've added some space for clarity, and changed the IP number to 123.123.123.123 to protect the privacy of the actual visitor)
