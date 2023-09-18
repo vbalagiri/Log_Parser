@@ -1,0 +1,18 @@
+2023-08-29 10:54:03,756 - DEBUG - IP Address list: 
+2023-08-29 10:54:03,758 - DEBUG - ['123.123.123.123', '123.123.123.123', '123.123.123.123', '123.123.123.123', '123.123.123.123', '123.123.123.123', '123.123.123.123', '123.123.123.123', '123.123.123.123', '123.123.123.123', '123.123.123.123', '123.123.123.123', '123.123.123.124', '123.123.123.124', '123.123.123.125', '123.123.123.125', '123.123.123.126', '123.123.123.126', '123.123.123.123']
+2023-08-29 10:54:03,758 - DEBUG - No of IP Addresses count: 19
+2023-08-29 10:54:03,758 - DEBUG - IP Address counter: 
+2023-08-29 10:54:03,759 - DEBUG - Counter({'123.123.123.123': 13, '123.123.123.124': 2, '123.123.123.125': 2, '123.123.123.126': 2})
+2023-08-29 10:54:03,759 - DEBUG - Images Groups:
+2023-08-29 10:54:03,782 - DEBUG - {'GIF': '/pics/wpaper.gif, /pics/5star2000.gif, /pics/5star.gif, /pics/wpaper.gif, /pics/5star2000.gif, /pics/5star.gif', 'JPG': '/pics/a2hlogo.jpg, /pics/a2hlogo.jpg'}
+2023-08-29 10:54:03,784 - DEBUG - Images Groups data type: <class 'dict'>
+2023-08-29 10:54:03,787 - DEBUG - Find Email list:
+2023-08-29 10:54:03,789 - DEBUG - ['ashen@looksmart.net', 'ashen@looksmart.net', 'ashen@looksmart.net', 'patric@yahoo.com']
+2023-08-29 10:54:03,792 - DEBUG - Function to convert_to_json
+2023-08-29 10:54:03,792 - DEBUG - json_output: 
+2023-08-29 10:54:03,792 - DEBUG - {"GIF": "/pics/wpaper.gif, /pics/5star2000.gif, /pics/5star.gif, /pics/wpaper.gif, /pics/5star2000.gif, /pics/5star.gif", "JPG": "/pics/a2hlogo.jpg, /pics/a2hlogo.jpg"}
+2023-08-29 10:54:03,792 - DEBUG - json_output data type: <class 'str'>
+2023-08-29 10:54:03,793 - DEBUG - Palindrome words: 
+2023-08-29 10:54:03,797 - DEBUG - ['madam', 'stats', 'civic']
+2023-08-29 10:54:03,798 - DEBUG - Find word: 
+2023-08-29 10:54:03,798 - DEBUG - contact us at: patric@yahoo.com
